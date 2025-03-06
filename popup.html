@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnLens</title>
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <div class="logo">
+          <span class="logo-text">L</span>
+        </div>
+        <div class="brand-text">
+          <h1>LearnLens</h1>
+          <span class="badge">AI Agent</span>
+        </div>
+      </div>
+      <p class="tagline">Understand any content, instantly</p>
+    </header>
+    
+    <div class="card main-card">
+      <div class="action-container">
+        <div class="task-selector">
+          <label for="taskSelector">What would you like to do?</label>
+          <div class="select-wrapper">
+            <select id="taskSelector">
+              <option value="summarize">Get a summary of this page</option>
+              <option value="keypoints">Extract key points</option>
+              <option value="question">Ask a question about this page</option>
+            </select>
+          </div>
+        </div>
+        
+        <div id="questionContainer" class="question-container hidden">
+          <label for="questionInput">Your question:</label>
+          <input type="text" id="questionInput" placeholder="E.g., What are the main arguments?">
+        </div>
+        
+        <button id="analyzeBtn" class="primary-button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L20 7V17L12 22L4 17V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 22V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 7L12 12L4 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Analyze with LearnLens</span>
+        </button>
+      </div>
+    </div>
+    
+    <div id="loadingIndicator" class="loading-indicator hidden">
+      <div class="spinner-container">
+        <div class="spinner"></div>
+      </div>
+      <p>LearnLens AI Agent is analyzing the page...</p>
+      <p class="loading-subtext">This usually takes 5-10 seconds</p>
+    </div>
+    
+    <div id="resultContainer" class="result-container hidden">
+      <div class="result-header">
+        <h2 id="resultTitle">Results</h2>
+        <div class="result-actions">
+          <button id="copyBtn" class="icon-button" title="Copy to clipboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="resultContent" class="result-content"></div>
+    </div>
+    
+    <footer>
+      <div class="footer-content">
+        <p class="powered-by">Powered by Gemini 1.5 Flash</p>
+        <p class="version">v1.0</p>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
+
